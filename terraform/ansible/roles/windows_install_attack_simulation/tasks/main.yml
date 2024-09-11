@@ -33,12 +33,12 @@
     src: profile.ps1
     dest: C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
 
-- name: Download Latest PurpleSharp Binary
-  win_shell: |
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls, [Net.SecurityProtocolType]::Tls11, [Net.SecurityProtocolType]::Tls12, [Net.SecurityProtocolType]::Ssl3
-    [Net.ServicePointManager]::SecurityProtocol = 'Tls, Tls11, Tls12, Ssl3'
-    If (-not (Test-Path c:\Tools\PurpleSharp)) { New-Item -Path c:\Tools\ -Name PurpleSharp -ItemType directory }
-    $tag = (Invoke-WebRequest 'https://api.github.com/repos/mvelazc0/PurpleSharp/releases' -UseBasicParsing | ConvertFrom-Json)[0].tag_name
-    $purplesharpDownloadUrl = 'https://github.com/mvelazc0/PurpleSharp/releases/download/' + $tag + '/PurpleSharp_x64.exe'
-    If (-not (Test-Path c:\Tools\PurpleSharp\PurpleSharp.exe)) { Invoke-WebRequest -Uri $purplesharpDownloadUrl -OutFile c:\Tools\PurpleSharp\PurpleSharp.exe }
+#- name: Download Latest PurpleSharp Binary
+#  win_shell: |
+#    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls, [Net.SecurityProtocolType]::Tls11, [Net.SecurityProtocolType]::Tls12, [Net.SecurityProtocolType]::Ssl3
+#    [Net.ServicePointManager]::SecurityProtocol = 'Tls, Tls11, Tls12, Ssl3'
+#    If (-not (Test-Path c:\Tools\PurpleSharp)) { New-Item -Path c:\Tools\ -Name PurpleSharp -ItemType directory }
+#    $tag = (Invoke-WebRequest 'https://api.github.com/repos/mvelazc0/PurpleSharp/releases' -UseBasicParsing | ConvertFrom-Json)[0].tag_name
+#    $purplesharpDownloadUrl = 'https://github.com/mvelazc0/PurpleSharp/releases/download/' + $tag + '/PurpleSharp_x64.exe'
+#    If (-not (Test-Path c:\Tools\PurpleSharp\PurpleSharp.exe)) { Invoke-WebRequest -Uri $purplesharpDownloadUrl -OutFile c:\Tools\PurpleSharp\PurpleSharp.exe }
 
